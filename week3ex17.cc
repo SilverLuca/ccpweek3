@@ -31,21 +31,24 @@ double sum(int argc, char *argv[], bool dot)
 
 int main(int argc, char *argv[])
 {
-    bool dot = false;
-    // loop over the args
-    for (int idx = 1; idx != argc; ++idx)
+    if (argc != 1)
     {
-	string input (argv[idx]);
-	// if there is a . then set dot = true
-	if (input.find(".") < input.length())
-	{
-	    dot = true;
-	    break;
-	}
+        bool dot = false;
+    	// loop over the args
+    	for (int idx = 1; idx != argc; ++idx)
+    	{
+	    string input (argv[idx]);
+	    // if there is a . then set dot = true
+	    if (input.find(".") < input.length())
+	    {
+	        dot = true;
+	        break;
+	    }
+        }
+        // choose the correct funtion based on dot
+        if (dot)
+	    cout << sum(argc, argv, dot) << '\n';
+        else
+	    cout << sum(argc, argv) << '\n';
     }
-    // choose the correct funtion based on dot
-    if (dot)
-	cout << sum(argc, argv, dot) << '\n';
-    else
-	cout << sum(argc, argv) << '\n';
 }

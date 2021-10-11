@@ -49,7 +49,10 @@ string partition(string input)
 
 int main(int argc, char *argv[])
 {
-    string input = argv[1];
-    string output = partition(input);
-    cout << output << '\n';
+    if (argc != 1)
+    {
+        string input = argv[1];
+    	string output = partition(input);
+    	cout << output << '\n';
+    }
 }
